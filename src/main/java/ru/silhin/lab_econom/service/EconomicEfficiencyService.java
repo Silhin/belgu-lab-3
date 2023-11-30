@@ -28,21 +28,21 @@ public class EconomicEfficiencyService {
                         <td>Себестоимость, руб.</td>
                         <td>%.2f</td>
                         <td>%.2f</td>
-                    <tr>
+                    </tr>
                     <tr>
                         <td>Суммарные затраты, связанные с внедрением проекта, руб.</td>
                         <td>%.2f</td>
                         <td>%.2f</td>
-                    <tr>
+                    </tr>
                     <tr>
                         <td>Приведенные затраты на единицу работ, руб.</td>
                         <td>%.2f</td>
                         <td>%.2f</td>
-                    <tr>
+                    </tr>
                     <tr>
                         <td>Экономический эффект от использования разрабатываемой системы, руб.</td>
                         <td colspan="2">%.2f</td>
-                    <tr>
+                    </tr>
                 </table>
                 """,
                 configModel.getTotalAmountProjectOperation(), configModel.getTotalAmountAnalogOperation(),
