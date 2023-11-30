@@ -2,8 +2,6 @@ module ru.silhin.lab_econom {
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.web;
-    requires thymeleaf;
-
 
     opens ru.silhin.lab_econom to javafx.fxml;
     exports ru.silhin.lab_econom;
