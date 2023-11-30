@@ -52,7 +52,7 @@ public class OperatingCostsService {
         html.append(String.format("""
                 <b>
                 <tr>
-                    <td>ИТОГО</td>
+                    <td colspan="4">ИТОГО</td>
                     <td>%.2f</td>
                 </tr>
                 </b>
@@ -98,7 +98,7 @@ public class OperatingCostsService {
         html.append(String.format("""
                 <b>
                 <tr>
-                    <td>ИТОГО</td>
+                    <td colspan="4">ИТОГО</td>
                     <td>%.2f</td>
                 </tr>
                 </b>
