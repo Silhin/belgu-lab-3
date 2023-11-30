@@ -12,8 +12,6 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 public class PlanTimeService {
     private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("dd.MM.yyyy");
@@ -36,8 +34,12 @@ public class PlanTimeService {
                 </tr>
                 """);
 
-        Set<WorkModel> workSet = works.stream().map(ActionWorkModel::getWorkModel).collect(Collectors.toSet());
-        for (WorkModel workModel : workSet) {
+        List<WorkModel> workList = works.stream()
+                .map(ActionWorkModel::getWorkModel)
+                .distinct()
+                .sorted(WorkModel::compare)
+                .toList();
+        for (WorkModel workModel : workList) {
             List<ActionWorkModel> actions = works.stream().filter(o -> o.getWorkModel().equals(workModel)).toList();
             ActionWorkModel maxTimeModel = Collections.max(actions, Comparator.comparingInt(ActionWorkModel::getTime));
 
@@ -99,7 +101,7 @@ public class PlanTimeService {
                 """);
 
         LocalDate finalDay = configModel.getStartTime();
-        for(WorkModel model : workSet) {
+        for(WorkModel model : workList) {
             List<ActionWorkModel> list = works.stream().filter(actionWorkModel -> actionWorkModel.getWorkModel().equals(model)).toList();
             html.append(String.format("""
                     <tr>
