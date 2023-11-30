@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Scene?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<Scene xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.silhin.lab_econom.controller.MenuController">
+   <VBox prefHeight="400.0" prefWidth="640.0">
+      <fx:define>
+         <ToggleGroup fx:id="screen8_material_type" />
+      </fx:define>
+      <MenuBar VBox.vgrow="NEVER">
+         <Menu mnemonicParsing="false" text="Файл">
+            <MenuItem mnemonicParsing="false" onAction="#save" text="Сохранить проект" />
+            <MenuItem mnemonicParsing="false" onAction="#load" text="Загрузить проект" />
+         </Menu>
+         <Menu mnemonicParsing="false" text="Окна">
+            <MenuItem mnemonicParsing="false" onAction="#toScreen1" text="1. Расчет КТУ. Ввод качеств" />
+            <MenuItem mnemonicParsing="false" onAction="#toScreen2" text="2. Расчет КТУ. Качества проекта" />
+            <MenuItem mnemonicParsing="false" onAction="#toScreen3" text="3. Расчет КТУ. Качества аналога" />
+            <MenuItem mnemonicParsing="false" onAction="#toScreen4" text="4. Ввод исполнителей - разработка" />
+            <MenuItem mnemonicParsing="false" onAction="#toScreen5" text="5. Ввод работ разработки" />
+            <MenuItem mnemonicParsing="false" onAction="#toScreen6" text="6. Указание исполнителей" />
+            <MenuItem mnemonicParsing="false" onAction="#toScreen7" text="7. Ввод материалов" />
+            <MenuItem mnemonicParsing="false" onAction="#toScreen8" text="8. Затраты на обслуживание" />
+            <MenuItem mnemonicParsing="false" onAction="#toScreen9" text="9. Затраты машинного времени на разработку" />
+            <MenuItem mnemonicParsing="false" onAction="#toScreen10" text="10. Дополнительные затраты на разработку" />
+            <MenuItem mnemonicParsing="false" onAction="#toScreen11" text="11. Затраты связанные с внедрением аналога" />
+            <MenuItem mnemonicParsing="false" onAction="#toScreen12" text="12. Ввод исполнителей-эксплуатация - Проект" />
+            <MenuItem mnemonicParsing="false" onAction="#toScreen13" text="13. Ввод исполнителей-эксплуатация - Аналог" />
+            <MenuItem mnemonicParsing="false" onAction="#toScreen14" text="14. Эксплуатационные затраты на оборудование" />
+         </Menu>
+         <Menu mnemonicParsing="false" text="Помощь">
+            <MenuItem mnemonicParsing="false" onAction="#showSetting" text="Настройки" />
+            <MenuItem mnemonicParsing="false" onAction="#printHelp" text="Инструкция" />
+         </Menu>
+      </MenuBar>
+      <AnchorPane prefHeight="374.0" prefWidth="524.0" VBox.vgrow="ALWAYS">
+         <AnchorPane fx:id="screen1" prefHeight="374.0" prefWidth="640.0">
+            <Label layoutX="20.0" layoutY="43.0" text="Расчёт технико-экономического обоснования проекта">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Button layoutX="204.0" layoutY="174.0" mnemonicParsing="false" onAction="#start" prefHeight="26.0" prefWidth="232.0" text="Начать расчеты" />
+            <TextField fx:id="hide_id_field" disable="true" visible="false" />
+         </AnchorPane>
+         <AnchorPane fx:id="screen2" prefHeight="374.0" prefWidth="640.0" visible="false">
+            <Label layoutX="189.0" layoutY="14.0" text="Расчет КТУ. Ввод качеств">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="11.0" layoutY="73.0" text="Наименование качества" />
+            <TextField fx:id="screen2_quality_name" layoutX="11.0" layoutY="91.0" prefHeight="26.0" prefWidth="294.0" />
+            <Label layoutX="11.0" layoutY="134.0" text="Коэффициент весомости" />
+            <TextField fx:id="screen2_quality_koeff" layoutX="11.0" layoutY="152.0" prefHeight="26.0" prefWidth="294.0" />
+            <Button layoutX="166.0" layoutY="193.0" mnemonicParsing="false" onAction="#add" prefHeight="26.0" prefWidth="138.0" text="Добавить" />
+            <Label layoutX="320.0" layoutY="64.0" text="Введенные качества" />
+            <ListView fx:id="screen2_quality_names" layoutX="318.0" layoutY="87.0" prefHeight="239.0" prefWidth="308.0" />
+            <Button layoutX="505.0" layoutY="333.0" mnemonicParsing="false" onAction="#next" prefHeight="26.0" prefWidth="120.0" text="Далее" />
+         </AnchorPane>
+         <AnchorPane fx:id="screen3" prefHeight="374.0" prefWidth="640.0" visible="false">
+            <Label layoutX="158.0" layoutY="14.0" text="Расчет КТУ. Качества проекта">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="11.0" layoutY="73.0" text="Наименование качества" />
+            <ComboBox fx:id="screen3_quality_name" layoutX="13.0" layoutY="91.0" prefHeight="26.0" prefWidth="294.0" />
+            <Label layoutX="11.0" layoutY="134.0" text="Экспертная оценка" />
+            <TextField fx:id="screen3_quality_score" layoutX="11.0" layoutY="152.0" prefHeight="26.0" prefWidth="294.0" />
+            <Button layoutX="166.0" layoutY="193.0" mnemonicParsing="false" onAction="#add" prefHeight="26.0" prefWidth="138.0" text="Установить" />
+            <Label layoutX="320.0" layoutY="64.0" text="Оценки" />
+            <ListView fx:id="screen3_quality_scores" layoutX="318.0" layoutY="87.0" prefHeight="239.0" prefWidth="308.0" />
+            <Button layoutX="505.0" layoutY="333.0" mnemonicParsing="false" onAction="#next" prefHeight="26.0" prefWidth="120.0" text="Далее" />
+            <Button layoutX="380.0" layoutY="333.0" mnemonicParsing="false" onAction="#back" prefHeight="26.0" prefWidth="120.0" text="Назад" />
+         </AnchorPane>
+         <AnchorPane fx:id="screen4" prefHeight="374.0" prefWidth="640.0" visible="false">
+            <Label layoutX="158.0" layoutY="14.0" text="Расчет КТУ. Качества аналога">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="11.0" layoutY="73.0" text="Наименование качества" />
+            <ComboBox fx:id="screen4_quality_name" layoutX="13.0" layoutY="91.0" prefHeight="26.0" prefWidth="294.0" />
+            <Label layoutX="11.0" layoutY="134.0" text="Экспертная оценка" />
+            <TextField fx:id="screen4_quality_score" layoutX="11.0" layoutY="152.0" prefHeight="26.0" prefWidth="294.0" />
+            <Button layoutX="166.0" layoutY="193.0" mnemonicParsing="false" onAction="#add" prefHeight="26.0" prefWidth="138.0" text="Установить" />
+            <Label layoutX="320.0" layoutY="64.0" text="Оценки" />
+            <ListView fx:id="screen4_quality_scores" layoutX="318.0" layoutY="87.0" prefHeight="239.0" prefWidth="308.0" />
+            <Button layoutX="505.0" layoutY="333.0" mnemonicParsing="false" onAction="#next" prefHeight="26.0" prefWidth="120.0" text="Далее" />
+            <Button layoutX="380.0" layoutY="333.0" mnemonicParsing="false" onAction="#back" prefHeight="26.0" prefWidth="120.0" text="Назад" />
+         </AnchorPane>
+         <AnchorPane fx:id="screen5" prefHeight="374.0" prefWidth="640.0" visible="false">
+            <Label layoutX="136.0" layoutY="14.0" text="Ввод исполнителей - разработка">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="11.0" layoutY="73.0" text="Наименование исполнителя" />
+            <TextField fx:id="screen5_action_name" layoutX="11.0" layoutY="90.0" prefHeight="26.0" prefWidth="294.0" />
+            <Label layoutX="11.0" layoutY="134.0" text="Оклад исполнителя, руб" />
+            <TextField fx:id="screen5_action_salary" layoutX="11.0" layoutY="152.0" prefHeight="26.0" prefWidth="294.0" />
+            <Button layoutX="166.0" layoutY="196.0" mnemonicParsing="false" onAction="#add" prefHeight="26.0" prefWidth="138.0" text="Добавить" />
+            <Label layoutX="320.0" layoutY="64.0" text="Исполнители" />
+            <ListView fx:id="screen5_action_names" layoutX="318.0" layoutY="87.0" prefHeight="239.0" prefWidth="308.0" />
+            <Button layoutX="505.0" layoutY="333.0" mnemonicParsing="false" onAction="#next" prefHeight="26.0" prefWidth="120.0" text="Далее" />
+            <Button layoutX="380.0" layoutY="333.0" mnemonicParsing="false" onAction="#back" prefHeight="26.0" prefWidth="120.0" text="Назад" />
+         </AnchorPane>
+         <AnchorPane fx:id="screen6" prefHeight="374.0" prefWidth="640.0" visible="false">
+            <Label layoutX="242.0" layoutY="14.0" text="Ввод работ разработки">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="11.0" layoutY="73.0" text="Наименование работы" />
+            <TextField fx:id="screen6_work" layoutX="11.0" layoutY="90.0" prefHeight="26.0" prefWidth="294.0" />
+            <Label layoutX="11.0" layoutY="129.0" text="Номер работы (1, 1.1., 1.1.1)" />
+            <TextField fx:id="screen6_index" layoutX="11.0" layoutY="147.0" prefHeight="26.0" prefWidth="294.0" />
+            <Button layoutX="172.0" layoutY="187.0" mnemonicParsing="false" onAction="#add" prefHeight="26.0" prefWidth="138.0" text="Добавить" />
+            <Label layoutX="320.0" layoutY="64.0" text="Работы" />
+            <ListView fx:id="screen6_works" layoutX="318.0" layoutY="87.0" prefHeight="239.0" prefWidth="308.0" />
+            <Button layoutX="505.0" layoutY="333.0" mnemonicParsing="false" onAction="#next" prefHeight="26.0" prefWidth="120.0" text="Далее" />
+            <Button layoutX="380.0" layoutY="333.0" mnemonicParsing="false" onAction="#back" prefHeight="26.0" prefWidth="120.0" text="Назад" />
+         </AnchorPane>
+         <AnchorPane fx:id="screen7" prefHeight="374.0" prefWidth="640.0" visible="false">
+            <Label layoutX="186.0" layoutY="14.0" text="Указание исполнителей">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="11.0" layoutY="73.0" text="Работа" />
+            <ComboBox fx:id="screen7_work" layoutX="12.0" layoutY="91.0" prefHeight="26.0" prefWidth="296.0" />
+            <Label layoutX="11.0" layoutY="129.0" text="Исполнитель" />
+            <ComboBox fx:id="screen7_action" layoutX="12.0" layoutY="147.0" prefHeight="26.0" prefWidth="296.0" />
+            <Label layoutX="11.0" layoutY="178.0" text="Длительность" />
+            <TextField fx:id="screen7_time" layoutX="13.0" layoutY="194.0" prefHeight="26.0" prefWidth="297.0" />
+            <Button layoutX="172.0" layoutY="236.0" mnemonicParsing="false" onAction="#add" prefHeight="26.0" prefWidth="138.0" text="Добавить" />
+            <Label layoutX="320.0" layoutY="64.0" text="Указанные работы" />
+            <ListView fx:id="screen7_action_works" layoutX="318.0" layoutY="87.0" prefHeight="239.0" prefWidth="308.0" />
+            <Button layoutX="505.0" layoutY="333.0" mnemonicParsing="false" onAction="#next" prefHeight="26.0" prefWidth="120.0" text="Далее" />
+            <Button layoutX="380.0" layoutY="333.0" mnemonicParsing="false" onAction="#back" prefHeight="26.0" prefWidth="120.0" text="Назад" />
+         </AnchorPane>
+         <AnchorPane fx:id="screen8" prefHeight="374.0" prefWidth="640.0" visible="false">
+            <Label layoutX="222.0" layoutY="14.0" text="Ввод материалов">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="11.0" layoutY="43.0" text="Наименование материала" />
+            <TextField fx:id="screen8_material_name" layoutX="11.0" layoutY="60.0" prefHeight="26.0" prefWidth="294.0" />
+            <Label layoutX="11.0" layoutY="104.0" text="Количество материалов, шт" />
+            <TextField fx:id="screen8_material_count" layoutX="11.0" layoutY="122.0" prefHeight="26.0" prefWidth="294.0" />
+            <Label layoutX="11.0" layoutY="160.0" text="Цена за единицу, руб" />
+            <TextField fx:id="screen8_material_cost" layoutX="11.0" layoutY="178.0" prefHeight="26.0" prefWidth="294.0" />
+            <CheckBox fx:id="screen8_material_is_machine" layoutX="11.0" layoutY="210.0" mnemonicParsing="false" text="Является оборудованием" />
+            <CheckBox fx:id="screen8_material_only_creating_project" layoutX="11.0" layoutY="238.0" mnemonicParsing="false" text="Используется только в разработке" />
+            <RadioButton fx:id="screen8_project" layoutX="13.0" layoutY="291.0" mnemonicParsing="false" text="Проект">
+               <toggleGroup>
+                  <ToggleGroup fx:id="screen8_material_type" />
+               </toggleGroup></RadioButton>
+            <RadioButton fx:id="screen8_analog" layoutX="87.0" layoutY="291.0" mnemonicParsing="false" text="Аналог" toggleGroup="$screen8_material_type" />
+            <Button layoutX="165.0" layoutY="333.0" mnemonicParsing="false" onAction="#add" prefHeight="26.0" prefWidth="138.0" text="Добавить" />
+            <Label layoutX="320.0" layoutY="64.0" text="Материалы" />
+            <ListView fx:id="screen8_material_names" layoutX="318.0" layoutY="87.0" prefHeight="239.0" prefWidth="308.0" />
+            <Button layoutX="505.0" layoutY="333.0" mnemonicParsing="false" onAction="#next" prefHeight="26.0" prefWidth="120.0" text="Далее" />
+            <Button layoutX="380.0" layoutY="333.0" mnemonicParsing="false" onAction="#back" prefHeight="26.0" prefWidth="120.0" text="Назад" />
+            <Label layoutX="13.0" layoutY="267.0" text="Относится к" />
+         </AnchorPane>
+         <AnchorPane fx:id="screen9" prefHeight="374.0" prefWidth="640.0" visible="false">
+            <Label layoutX="176.0" layoutY="14.0" text="Затраты на оборудование">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="11.0" layoutY="73.0" text="Наименование оборудования" />
+            <ComboBox fx:id="screen9_equipment_name" layoutX="11.0" layoutY="91.0" prefHeight="26.0" prefWidth="294.0" />
+            <Label layoutX="11.0" layoutY="134.0" text="Трудоемкость задачи, машина-часы" />
+            <TextField fx:id="screen9_equipment_work_time" layoutX="11.0" layoutY="152.0" prefHeight="26.0" prefWidth="294.0" />
+            <Label layoutX="11.0" layoutY="190.0" text="Периодичность решения задачи, дней" />
+            <TextField fx:id="screen9_equipment_work_period" layoutX="11.0" layoutY="208.0" prefHeight="26.0" prefWidth="294.0" />
+            <Button layoutX="166.0" layoutY="253.0" mnemonicParsing="false" onAction="#add" prefHeight="26.0" prefWidth="138.0" text="Добавить" />
+            <Label layoutX="320.0" layoutY="64.0" text="Задачи" />
+            <ListView fx:id="screen9_equipment_tasks" layoutX="318.0" layoutY="87.0" prefHeight="239.0" prefWidth="308.0" />
+            <Button layoutX="505.0" layoutY="333.0" mnemonicParsing="false" onAction="#next" prefHeight="26.0" prefWidth="120.0" text="Далее" />
+            <Button layoutX="380.0" layoutY="333.0" mnemonicParsing="false" onAction="#back" prefHeight="26.0" prefWidth="120.0" text="Назад" />
+         </AnchorPane>
+         <AnchorPane fx:id="screen10" prefHeight="374.0" prefWidth="640.0" visible="false">
+            <Label layoutX="73.0" layoutY="14.0" text="Затраты машинного времени на разработку">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="182.0" layoutY="73.0" text="Необходимое машинное время, час" />
+            <TextField fx:id="screen10_machine_time" layoutX="182.0" layoutY="92.0" prefHeight="26.0" prefWidth="294.0" />
+            <Label layoutX="182.0" layoutY="134.0" text="Стоимость 1 часа машинного времени, руб" />
+            <TextField fx:id="screen10_machine_time_cost" layoutX="182.0" layoutY="152.0" prefHeight="26.0" prefWidth="294.0" />
+            <Label layoutX="182.0" layoutY="190.0" text="Коэффициент мультипрограммности [0; 1]" />
+            <TextField fx:id="screen10_koeff_multi" layoutX="182.0" layoutY="208.0" prefHeight="26.0" prefWidth="294.0" />
+            <Button layoutX="337.0" layoutY="253.0" mnemonicParsing="false" onAction="#add" prefHeight="26.0" prefWidth="138.0" text="Добавить" />
+            <Button layoutX="505.0" layoutY="333.0" mnemonicParsing="false" onAction="#next" prefHeight="26.0" prefWidth="120.0" text="Далее" />
+            <Button layoutX="380.0" layoutY="333.0" mnemonicParsing="false" onAction="#back" prefHeight="26.0" prefWidth="120.0" text="Назад" />
+         </AnchorPane>
+         <AnchorPane fx:id="screen11" prefHeight="374.0" prefWidth="640.0" visible="false">
+            <Label layoutX="95.0" layoutY="14.0" text="Дополнительные затраты на разработку">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="11.0" layoutY="73.0" text="Наименование затрат" />
+            <ComboBox fx:id="screen11_cost_name" layoutX="11.0" layoutY="91.0" prefHeight="26.0" prefWidth="294.0" />
+            <Label layoutX="11.0" layoutY="134.0" text="Сумма затрат, руб" />
+            <TextField fx:id="screen11_cost_value" layoutX="11.0" layoutY="152.0" prefHeight="26.0" prefWidth="294.0" />
+            <Button layoutX="165.0" layoutY="197.0" mnemonicParsing="false" onAction="#add" prefHeight="26.0" prefWidth="138.0" text="Добавить" />
+            <Label layoutX="320.0" layoutY="64.0" text="Дополнительные затраты" />
+            <ListView fx:id="screen11_cost_names" layoutX="318.0" layoutY="87.0" prefHeight="239.0" prefWidth="308.0" />
+            <Button layoutX="505.0" layoutY="333.0" mnemonicParsing="false" onAction="#next" prefHeight="26.0" prefWidth="120.0" text="Далее" />
+            <Button layoutX="380.0" layoutY="333.0" mnemonicParsing="false" onAction="#back" prefHeight="26.0" prefWidth="120.0" text="Назад" />
+         </AnchorPane>
+         <AnchorPane fx:id="screen12" prefHeight="374.0" prefWidth="640.0" visible="false">
+            <Label layoutX="88.0" layoutY="14.0" text="Затраты связанные с внедрением аналога">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="11.0" layoutY="73.0" text="Наименование затрат" />
+            <ComboBox fx:id="screen12_cost_name" layoutX="11.0" layoutY="91.0" prefHeight="26.0" prefWidth="294.0" />
+            <Label layoutX="11.0" layoutY="134.0" text="Сумма затрат, руб" />
+            <TextField fx:id="screen12_cost_value" layoutX="11.0" layoutY="152.0" prefHeight="26.0" prefWidth="294.0" />
+            <Button layoutX="165.0" layoutY="197.0" mnemonicParsing="false" onAction="#add" prefHeight="26.0" prefWidth="138.0" text="Добавить" />
+            <Label layoutX="320.0" layoutY="64.0" text="Затраты" />
+            <ListView fx:id="screen12_cost_names" layoutX="318.0" layoutY="87.0" prefHeight="239.0" prefWidth="308.0" />
+            <Button layoutX="505.0" layoutY="333.0" mnemonicParsing="false" onAction="#next" prefHeight="26.0" prefWidth="120.0" text="Далее" />
+            <Button layoutX="380.0" layoutY="333.0" mnemonicParsing="false" onAction="#back" prefHeight="26.0" prefWidth="120.0" text="Назад" />
+         </AnchorPane>
+         <AnchorPane fx:id="screen13" prefHeight="374.0" prefWidth="640.0" visible="false">
+            <Label layoutX="81.0" layoutY="14.0" text="Ввод исполнителей-эксплуатация - Проект">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="11.0" layoutY="73.0" text="Наименование исполнителя" />
+            <TextField fx:id="screen13_action_name" layoutX="11.0" layoutY="90.0" prefHeight="26.0" prefWidth="294.0" />
+            <Label layoutX="11.0" layoutY="134.0" text="Оклад исполнителя, руб" />
+            <TextField fx:id="screen13_action_salary" layoutX="11.0" layoutY="152.0" prefHeight="26.0" prefWidth="294.0" />
+            <Label layoutX="12.0" layoutY="187.0" text="Затраты времени на эксплуатацию, дней" />
+            <TextField fx:id="screen13_action_time" layoutX="12.0" layoutY="205.0" prefHeight="26.0" prefWidth="294.0" />
+            <Button layoutX="166.0" layoutY="237.0" mnemonicParsing="false" onAction="#add" prefHeight="26.0" prefWidth="138.0" text="Добавить" />
+            <Label layoutX="320.0" layoutY="64.0" text="Исполнители" />
+            <ListView fx:id="screen13_action_names" layoutX="318.0" layoutY="87.0" prefHeight="239.0" prefWidth="308.0" />
+            <Button layoutX="505.0" layoutY="333.0" mnemonicParsing="false" onAction="#next" prefHeight="26.0" prefWidth="120.0" text="Далее" />
+            <Button layoutX="380.0" layoutY="333.0" mnemonicParsing="false" onAction="#back" prefHeight="26.0" prefWidth="120.0" text="Назад" />
+         </AnchorPane>
+         <AnchorPane fx:id="screen14" prefHeight="374.0" prefWidth="640.0" visible="false">
+            <Label layoutX="81.0" layoutY="14.0" text="Ввод исполнителей-эксплуатация - Аналог">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="11.0" layoutY="73.0" text="Наименование исполнителя" />
+            <TextField fx:id="screen14_action_name" layoutX="11.0" layoutY="90.0" prefHeight="26.0" prefWidth="294.0" />
+            <Label layoutX="11.0" layoutY="134.0" text="Оклад исполнителя, руб" />
+            <TextField fx:id="screen14_action_salary" layoutX="11.0" layoutY="152.0" prefHeight="26.0" prefWidth="294.0" />
+            <Label layoutX="12.0" layoutY="191.0" text="Затраты времени на эксплуатацию, дней" />
+            <TextField fx:id="screen14_action_time" layoutX="12.0" layoutY="209.0" prefHeight="26.0" prefWidth="294.0" />
+            <Button layoutX="166.0" layoutY="241.0" mnemonicParsing="false" onAction="#add" prefHeight="26.0" prefWidth="138.0" text="Добавить" />
+            <Label layoutX="320.0" layoutY="64.0" text="Исполнители" />
+            <ListView fx:id="screen14_action_names" layoutX="318.0" layoutY="87.0" prefHeight="239.0" prefWidth="308.0" />
+            <Button layoutX="505.0" layoutY="333.0" mnemonicParsing="false" onAction="#next" prefHeight="26.0" prefWidth="120.0" text="Далее" />
+            <Button layoutX="380.0" layoutY="333.0" mnemonicParsing="false" onAction="#back" prefHeight="26.0" prefWidth="120.0" text="Назад" />
+         </AnchorPane>
+         <AnchorPane fx:id="screen15" prefHeight="374.0" prefWidth="640.0" visible="false">
+            <Label layoutX="88.0" layoutY="14.0" text="Эксплуатационные затраты на оборудование">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="11.0" layoutY="73.0" text="Наименование оборудования" />
+            <ComboBox fx:id="screen15_equipment" layoutX="11.0" layoutY="91.0" prefHeight="26.0" prefWidth="294.0" />
+            <Label layoutX="14.0" layoutY="129.0" text="Норма годовых амортизационных отчислений [0; 1]" />
+            <TextField fx:id="screen15_equipment_norm" layoutX="14.0" layoutY="147.0" prefHeight="26.0" prefWidth="294.0" />
+            <Label layoutX="14.0" layoutY="227.0" text="Коэффициент использованной мощности [0; 1]" />
+            <TextField fx:id="screen15_equipment_koeff" layoutX="14.0" layoutY="245.0" prefHeight="26.0" prefWidth="294.0" />
+            <Label layoutX="14.0" layoutY="176.0" text="Мощность, кВт" />
+            <TextField fx:id="screen15_equipment_power" layoutX="14.0" layoutY="194.0" prefHeight="26.0" prefWidth="294.0" />
+            <Label layoutX="320.0" layoutY="64.0" text="Оборудование" />
+            <ListView fx:id="screen15_equipment_list" layoutX="318.0" layoutY="87.0" prefHeight="239.0" prefWidth="308.0" />
+            <Button layoutX="161.0" layoutY="333.0" mnemonicParsing="false" onAction="#add" prefHeight="26.0" prefWidth="138.0" text="Добавить" />
+            <Button layoutX="505.0" layoutY="333.0" mnemonicParsing="false" onAction="#next" prefHeight="26.0" prefWidth="120.0" text="Готово" />
+            <Button layoutX="380.0" layoutY="333.0" mnemonicParsing="false" onAction="#back" prefHeight="26.0" prefWidth="120.0" text="Назад" />
+         </AnchorPane>
+      </AnchorPane>
+   </VBox>
+</Scene>
